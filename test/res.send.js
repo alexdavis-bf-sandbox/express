@@ -105,7 +105,7 @@ describe('res', function(){
 
       request(app)
       .get('/')
-      .expect('ETag', '"-1498647312"')
+      .expect('ETag', '"fFD7Se+Vsq6deAl063thow=="')
       .end(done);
     })
 
@@ -194,7 +194,7 @@ describe('res', function(){
 
       request(app)
       .get('/')
-      .expect('ETag', '"-1498647312"')
+      .expect('ETag', '"fFD7Se+Vsq6deAl063thow=="')
       .end(done);
     })
 
@@ -309,7 +309,7 @@ describe('res', function(){
 
     request(app)
     .get('/')
-    .set('If-None-Match', '"-1498647312"')
+    .set('If-None-Match', '"fFD7Se+Vsq6deAl063thow=="')
     .expect(304, done);
   })
 
@@ -369,7 +369,7 @@ describe('res', function(){
         request(app)
         .get('/')
         .end(function(err, res){
-          res.headers.should.have.property('etag', '"-1498647312"');
+          res.headers.should.have.property('etag', '"fFD7Se+Vsq6deAl063thow=="');
           done();
         });
       });

@@ -4,20 +4,20 @@ var utils = require('../lib/utils')
 
 describe('utils.etag(body)', function(){
 
-  var str = 'Hello CRC';
+  var str = 'Hello world!';
   var strUTF8 = '<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body><p>自動販売</p></body></html>';
 
   it('should support strings', function(){
-    utils.etag(str).should.eql('"-2034458343"');
+    utils.etag(str).should.eql('"hvsmnRkNLIX24EaM7KQqIA=="');
   })
 
   it('should support utf8 strings', function(){
-    utils.etag(strUTF8).should.eql('"1395090196"');
+    utils.etag(strUTF8).should.eql('"p5Lv6LKf0hpLsmCXUa1maA=="');
   })
 
   it('should support buffer', function(){
-    utils.etag(new Buffer(strUTF8)).should.eql('"1395090196"');
-    utils.etag(new Buffer(str)).should.eql('"-2034458343"');
+    utils.etag(new Buffer(strUTF8)).should.eql('"p5Lv6LKf0hpLsmCXUa1maA=="');
+    utils.etag(new Buffer(str)).should.eql('"hvsmnRkNLIX24EaM7KQqIA=="');
   })
 
 })
